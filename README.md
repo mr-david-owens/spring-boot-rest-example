@@ -4,15 +4,13 @@ This is a sample Java / Maven / Spring Boot application that can be used as a st
 
 ## How to Run 
 
-This application is packaged as a war which has Tomcat 7 embedded. No Tomcat or JBoss installation is necessary. You run it using the ```java -jar``` command.
+This application is packaged as a war which has Tomcat 7 embedded. No Tomcat or JBoss installation is necessary.
 
 * Clone this repository 
 * Make sure you are using JDK 1.7 and Maven 3.x
 * You can build the project and run the tests by running ```mvn clean package```
-* Once successfully built, you can run the service by one of these two methods:
+* Once successfully built, you can run the service by this method:
 ```
-        java -jar -Dspring.profiles.active=test target/spring-boot-rest-example-0.2.0.war
-or
         mvn spring-boot:run -Drun.arguments="spring.profiles.active=test"
 ```
 * Check the stdout to make sure no exceptions are thrown
@@ -23,6 +21,8 @@ Once the application runs you should see something like this
 2014-10-04 18:24:58.870  INFO 10190 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8090/http
 2014-10-04 18:24:58.872  INFO 10190 --- [           main] com.khoubyari.example.Application        : Started Application in 6.764 seconds (JVM running for 7.06)
 ```
+
+Access logs for the application are written to tomcat/logs and are in the [Common Log Format](https://www.w3.org/Daemon/User/Config/Logging.html#common-logfile-format)
 
 ## About the Service
 
@@ -58,7 +58,7 @@ http://localhost:8091/metrics
 ### Create a hotel resource
 
 ```
-POST /example/v1/hotels
+POST http://localhost:8090/example/v1/hotels
 Accept: application/json
 Content-Type: application/json
 
@@ -174,8 +174,6 @@ Run the service with these command line options:
 mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 ```
 and then you can connect to it remotely using your IDE. For example, from IntelliJ You have to add remote debug configuration: Edit configuration -> Remote.
-
-# Questions and Comments: khoubyari@gmail.com
 
 
 

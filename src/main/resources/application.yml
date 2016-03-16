@@ -11,6 +11,11 @@ spring.datasource:
 
 server:
   port: 8090
+  tomcat:
+    basedir: tomcat
+    accesslog:
+      enabled: true
+      pattern: '%h %l %u %t %r %s %b'
 
 #todo: make sure to always enable security in production
 security:

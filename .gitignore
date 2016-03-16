@@ -2,6 +2,7 @@
 build/
 target/
 bin/
+tomcat/
 dependency-reduced-pom.xml
 .classpath
 .project
